@@ -11,6 +11,8 @@ from pathlib import Path
 
 # S&P 500 / DJIA Collection & Calculation Section
 
+stocks_dir = Path('Stocks')
+stocks_dir.mkdir(parents=True, exist_ok=True)
 
 def get_djia_symbols():
     """
