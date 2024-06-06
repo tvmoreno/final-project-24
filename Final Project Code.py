@@ -43,6 +43,7 @@ def get_market_caps(symbols):
         market_cap = stock.info.get('marketCap', None)
         if market_cap is not None:
             market_caps[symbol] = market_cap
+        stock.history(period='5y').to_csv(f"Stocks/{symbol}_stock_history.csv")
     return market_caps
 
 
@@ -131,7 +132,6 @@ for file in csv_directory.iterdir():
         df['Date'] = pd.to_datetime(df['Date'], utc=True)
         all_data[file.stem.strip('_stock_history')] = df
 
-print(all_data)
 filtered_data = {symbol: filter_first_of_month(df) for symbol, df in all_data.items()}
 
 # Ensure filtered_data has items before accessing keys
