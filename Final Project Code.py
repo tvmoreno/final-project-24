@@ -14,6 +14,7 @@ from pathlib import Path
 stocks_dir = Path('Stocks')
 stocks_dir.mkdir(parents=True, exist_ok=True)
 
+
 def get_djia_symbols():
     """
     Gets the symbols of DJIA stocks from Wikipedia
@@ -63,7 +64,6 @@ def calculate_djia(filtered_data):
     Calculates the DJIA values based on a list of stocks (added together)
     Returns a list of dates and DJIA overall value for those dates
     """
-    print(filtered_data)
     dates = filtered_data[list(filtered_data.keys())[0]]['Date']
     djia_values = []
 
